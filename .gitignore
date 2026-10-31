@@ -155,3 +155,8 @@ pytest_buckets.txt
 tests/e2e/node_modules/
 tests/e2e/playwright-report/
 tests/e2e/test-results/
+
+# Personal fork repository bootstrap
+!/.codex/
+!/.codex/bin/
+!/.codex/bin/repository-preflight

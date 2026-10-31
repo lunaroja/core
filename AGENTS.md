@@ -1,3 +1,51 @@
+<!-- second-brain-repository-bootstrap:v1 -->
+
+# Repository agent guide
+
+This repository extends Abraham's canonical agent contract at
+`/Users/abraham/src/second-brain/AGENTS.md`. Repository-specific instructions
+below add to that contract; they do not replace it.
+
+## Required task-start synchronization
+
+Before substantive work or a substantive response in a new task:
+
+1. Run `.codex/bin/repository-preflight` from anywhere inside this repository.
+2. If it reports a dirty, detached, untracked, or diverged checkout, preserve
+   the existing work and report the exact synchronization blocker. Never reset,
+   clean, force, or overwrite work to make the preflight pass.
+3. After a successful pull, read the current Second Brain `AGENTS.md`, then this
+   file, before acting. Start a new task if pulled instruction changes must be
+   loaded by the runtime immediately.
+
+The preflight verifies the global Second Brain link and performs only
+fast-forward pulls for clean checkouts with tracking branches.
+
+## Fork scope and workflow
+
+This is Abraham's development fork of `home-assistant/core`, initially scoped to
+`homeassistant/components/rachio` and `tests/components/rachio`. The default
+branch is `dev`; `origin` is the personal fork and `upstream` is the official
+repository. Keep household data, credentials, live inventory and deployment
+records in the private household configuration repository. That repository's
+issue #305 owns the current development/adoption plan.
+
+Keep the bootstrap files on fork `dev`. Prepare future contribution branches
+from freshly fetched `upstream/dev`, excluding personal bootstrap changes.
+Do not deploy all of this fork as Home Assistant. Package the Rachio integration
+alone against the installed HA release and verify compatibility before adoption.
+A same-domain custom integration must preserve config entries, unique IDs,
+entity IDs and existing HomeKit exposure, with a tested stock rollback.
+
+For this fork's documentation/bootstrap-only edits, validate with
+`git diff --check`, the canonical scaffold check and repository preflight.
+The upstream setup and Python checks below apply before application or test
+changes; the full development environment is not installed by this scaffold.
+Honor upstream's human-review AI policy before any upstream submission.
+Abraham requested local use and verification before PRs.
+
+## Preserved upstream instructions
+
 # GitHub Copilot & Claude Code Instructions
 
 This repository contains the core of Home Assistant, a Python 3 based home automation application.
